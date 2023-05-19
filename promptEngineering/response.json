@@ -1,1 +1,84 @@
-"{\n    \"Features\": [\n        {\n            \"Name\": \"Size\",\n            \"Positive Characteristics\": [\n                \"Bigger screen\",\n                \"Fits nice in the hand\",\n                \"Wireless charging works good\"\n            ],\n            \"Negative Characteristics\": [\n                \"Too big for one-handed use\",\n                \"Slippery back and sides\"\n            ]\n        },\n        {\n            \"Name\": \"Operating System\",\n            \"Positive Characteristics\": [\n                \"Apple-like OS experience\",\n                \"Fluid and simple\"\n            ],\n            \"Negative Characteristics\": [\n                \"No native app lock for sensitive data\"\n            ]\n        },\n        {\n            \"Name\": \"Fingerprint Sensor\",\n            \"Positive Characteristics\": [\n                \"Face unlock works great\"\n            ],\n            \"Negative Characteristics\": [\n                \"Takes a few weeks to get the hang of\",\n                \"Far from the best in the market\",\n                \"Basically useless\"\n            ]\n        },\n        {\n            \"Name\": \"Battery Life\",\n            \"Positive Characteristics\": [\n                \"Incredible\",\n                \"All day easy\"\n            ],\n            \"Negative Characteristics\": [\n                \"Burns through battery quickly\",\n                \"Lasted only 24 hours\"\n            ]\n        },\n        {\n            \"Name\": \"Camera\",\n            \"Positive Characteristics\": [\n                \"Awesome\"\n            ],\n            \"Negative Characteristics\": [\n                \"Not tested\",\n                \"Can't trust the colors on the screen\"\n            ]\n        },\n        {\n            \"Name\": \"Screen\",\n            \"Positive Characteristics\": [\n                \"Nice and bright in the sun\"\n            ],\n            \"Negative Characteristics\": [\n                \"Poorly calibrated\",\n                \"Very yellow tint\",\n                \"Can't display true white or sky blue\",\n                \"Background looks pixelated\"\n            ]\n        },\n        {\n            \"Name\": \"Price\",\n            \"Positive Characteristics\": [\n                \"Best android phone for the price\",\n                \"Extremely happy with the value for my dollar\"\n            ],\n            \"Negative Characteristics\": [\n                \"Not applicable\"\n            ]\n        },\n        {\n            \"Name\": \"Charging\",\n            \"Positive Characteristics\": [\n                \"Wireless charging works good\"\n            ],\n            \"Negative Characteristics\": [\n                \"Single adapter cord doesn't adapt to standard A type female end\",\n                \"Need to order a two-ended male A cord connected to the single included adaptor\"\n            ]\n        },\n        {\n            \"Name\": \"Service\",\n            \"Positive Characteristics\": [\n                \"Reception is really good\"\n            ],\n            \"Negative Characteristics\": [\n                \"Lost service constantly\",\n                \"Could not read sim card\",\n                \"IMEI number disappeared from the phone\",\n                \"Corrupted operating system\"\n            ]\n        }\n    ]\n}"
+{
+    "Features": [
+        {
+            "name": "Size",
+            "Positive characteristics": "Not applicable",
+            "Negative characteristics": "The phone is too big and difficult to use with one hand"
+        },
+        {
+            "name": "Back cover",
+            "Positive characteristics": "Not applicable",
+            "Negative characteristics": "The phone's back cover is very slippery and slides easily"
+        },
+        {
+            "name": "Sides",
+            "Positive characteristics": "Not applicable",
+            "Negative characteristics": "The sides of the phone are very slippery"
+        },
+        {
+            "name": "OS experience",
+            "Positive characteristics": "The phone has a very apple-like OS experience, everything is fluid, simple and just works",
+            "Negative characteristics": "Not applicable"
+        },
+        {
+            "name": "Fingerprint sensor",
+            "Positive characteristics": "Not applicable",
+            "Negative characteristics": "The fingerprint sensor takes a few weeks to get the hang of and is far from the best in the market"
+        },
+        {
+            "name": "Battery life",
+            "Positive characteristics": "Battery life is incredible. Haven't charged my phone in 4 days",
+            "Negative characteristics": "Not applicable"
+        },
+        {
+            "name": "Camera",
+            "Positive characteristics": "Not applicable",
+            "Negative characteristics": "The screen is poorly calibrated and can't display true colors, making it difficult to trust the camera"
+        },
+        {
+            "name": "Reception",
+            "Positive characteristics": "The reception is really good, my previous phone would get H+ where i live, this one gets LTE and it is fast",
+            "Negative characteristics": "Not applicable"
+        },
+        {
+            "name": "Screen",
+            "Positive characteristics": "Not applicable",
+            "Negative characteristics": "The screen on this device is really poorly calibrated. It has a very yellow tint that is very noticeable when watching video, it can't display true white (looks creamy) or sky blue (has a greenish hue). The background looks pixelated after unlocking until you scroll, not sure what that's about."
+        },
+        {
+            "name": "Performance",
+            "Positive characteristics": "The phone runs fast and smoothly",
+            "Negative characteristics": "Not applicable"
+        },
+        {
+            "name": "Weight",
+            "Positive characteristics": "The phone is not that heavy at all",
+            "Negative characteristics": "Not applicable"
+        },
+        {
+            "name": "Charging",
+            "Positive characteristics": "Wireless charging works good",
+            "Negative characteristics": "The single adapter cord doesn't adapt to standard A type female end found on most plug in chargers"
+        },
+        {
+            "name": "SIM card holder",
+            "Positive characteristics": "Not applicable",
+            "Negative characteristics": "The SIM card holder doesn't release enough to remove it from the phone by inserting the key which is included"
+        },
+        {
+            "name": "Value for money",
+            "Positive characteristics": "Extremely happy with the value for my dollar",
+            "Negative characteristics": "Not applicable"
+        },
+        {
+            "name": "Reliability",
+            "Positive characteristics": "Not applicable",
+            "Negative characteristics": "Used the phone for less than 24 hours before it stopped working. When it did work I lost service constantly then the phone suddenly could not read my sim card and I no longer had service."
+        },
+        {
+            "name": "Upgrade",
+            "Positive characteristics": "Not applicable",
+            "Negative characteristics": "It is a nice phone, but doesn't feel like an upgrade from my 5a"
+        }
+    ]
+}
