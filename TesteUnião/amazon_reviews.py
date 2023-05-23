@@ -4,44 +4,35 @@ import time
 import random
 import pandas as pd
 
-class ReviewScraper:
-    def __init__(self, asin):
-        user_agent_list = [
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15'
-        ]
+class Reviews:
+    def __init__(self, asin) -> None:
+
+        user_agent_list = [ 
+	    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36', 
+	    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 
+	    'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15', ]
 
         user_agent = random.choice(user_agent_list)
         self.asin = asin
         self.session = HTMLSession()
         self.headers = {'User-Agent': user_agent}
-        self.url = f'https://www.amazon.co.uk/product-reviews/{self.asin}/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews&sortBy=recent&pageNumber='
-
+        self.url = f'https://www.amazon.co.uk/product-reviews/dp/{self.asin}/ref_cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews&sortBy=recent&pageNumber='
 
     def pagination(self, page):
-        r = self.session.get(self.url + str(page), headers=self.headers)
+    
+        r = self.session.get(self.url + str(page))
         
-        if r.status_code == 200:
-            if not r.html.find('div[data-hook=review]'):
-                return False
-            else:
-                return r.html.find('div[data-hook=review]')
-        else:
-            print("Request failed with status code:", r.status_code)
+        if not r.html.find('div[data-hook=review]') :
             return False
+        else:
+            return r.html.find('div[data-hook=review]')
 
     def parse(self, reviews):
         total = []
         for review in reviews:
-            title_elem = review.find('a[data-hook=review-title]',first=True)
-            title = title_elem.text if title_elem is not None else "N/A"
-
-            rating_elem = review.find('i[data-hook=review-star-rating] span',first=True)
-            rating = rating_elem.text if rating_elem is not None else "N/A"
-
-            body_elem = review.find('span[data-hook=review-body] span',first=True)
-            body = body_elem.text.replace('\n','').strip() if body_elem is not None else "N/A"
+            title = review.find('a[data-hook=review-title]',first=True).text
+            rating = review.find('i[data-hook=review-star-rating] span',first=True).text
+            body = review.find('span[data-hook=review-body] span',first=True).text.replace('\n','').strip()
 
             data={
                 'title': title,
@@ -60,9 +51,9 @@ class ReviewScraper:
 
 def search(): 
     results = []
-    for x in range(1,2):
-        value = input("Indique o ID do produto que deseja: ")
-        amz = ReviewScraper(value)
+    value = input("Indique o ID do produto que deseja: ")
+    for x in range(1,3):
+        amz = Reviews(value)
         #print('getting page',x)
         time.sleep(10)
         reviews = amz.pagination(x)

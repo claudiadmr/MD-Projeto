@@ -2,43 +2,28 @@
     "Features": [
         {
             "Name": "Camera",
-            "Positive characteristics": "Top notch video and camera quality, photos turn out phenomenal, stable videos",
+            "Positive characteristics": "Top-notch video and camera quality, photos turn out phenomenal, stable videos, high-quality sound from speakers",
             "Negative characteristics": "Not applicable"
         },
         {
             "Name": "Battery",
-            "Positive characteristics": "Good battery life",
-            "Negative characteristics": "Battery is ok, not great"
+            "Positive characteristics": "Good battery life, lasts about 14 hours",
+            "Negative characteristics": "Battery is okay, not great"
         },
         {
-            "Name": "Speakers",
-            "Positive characteristics": "Speakers pack a punch, high-quality sound",
-            "Negative characteristics": "Not applicable"
-        },
-        {
-            "Name": "Packaging",
+            "Name": "Box condition",
             "Positive characteristics": "Great saving on price compared to other outlets",
             "Negative characteristics": "Box may be damaged"
         },
         {
-            "Name": "Overall performance",
-            "Positive characteristics": "Great upgrade from previous models, fast",
-            "Negative characteristics": "Phone constantly lags, slow to respond to commands, frequently turns on and off by itself, touch screen is unresponsive, gets warm easily"
+            "Name": "Performance",
+            "Positive characteristics": "Fast",
+            "Negative characteristics": "Phone constantly lags, slow to respond to commands, frequently turns on and off by itself, touch screen is unresponsive, frustrating to use, gets warm easily"
         },
         {
-            "Name": "Screen",
-            "Positive characteristics": "Not applicable",
-            "Negative characteristics": "Screen judders when scrolling"
-        },
-        {
-            "Name": "Photo quality",
-            "Positive characteristics": "Not applicable",
-            "Negative characteristics": "Poor photo quality compared to previous models"
-        },
-        {
-            "Name": "Touch screen sensitivity",
-            "Positive characteristics": "Not applicable",
-            "Negative characteristics": "Randomly opens apps, super sensitivity"
+            "Name": "Design",
+            "Positive characteristics": "Lighter than iPhone 14 Pro Max",
+            "Negative characteristics": "Disappointing looks, expensive for what it is"
         }
     ]
 }
