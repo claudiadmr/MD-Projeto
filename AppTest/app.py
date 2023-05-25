@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
 from dominate import document
 from dominate.tags import *
 import json
@@ -12,8 +12,10 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
-@app.route('/analyze_reviews', methods=['POST'])
+@app.route('/analyze_reviews', methods=['GET', 'POST'])
 def analyze_reviews():
+    if request.method == 'GET':
+        return redirect('/')
     product_id = request.form.get('product_id')
     if not product_id:
         return 'Error: No product_id provided. Please go back and enter a product_id.', 400
@@ -95,9 +97,7 @@ def analyze_reviews():
         with div(cls='footer'):
             p('UMinho - ' + date.today().strftime('%Y'))
 
-
     return str(doc), 200
-
 
 if __name__ == "__main__":
     app.run(port=5000)
