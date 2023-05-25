@@ -3,7 +3,7 @@ import openai
 import json
 import os
 
-openai.api_key = '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' 
+openai.api_key = '' 
 
 def get_completion(prompt, model="gpt-3.5-turbo"):
     messages = [{"role": "user", "content": prompt}]
