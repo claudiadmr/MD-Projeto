@@ -26,7 +26,8 @@ def main(amazon, amazon_value):
     Analyze the following collection of reviews and employ topic modeling techniques to categorize the feedback into specific features of the product.
     Divide each feature in positive characteristics and in negative characteristics, written it by your own words.
     Response format: 
-                    Feature:       
+                    
+                    "features":       
                         -Name: x
                         -Product name: q
                         -Positive characteristics: y

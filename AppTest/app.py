@@ -21,9 +21,7 @@ def analyze_reviews():
     response = promptJson.main(amazon, amazon_value)
     data = json.loads(response)
 
-    doc = document(title='Product Analyzer - ' + data['Features'][0]['Product name'])
-
-    doc = document(title='Product Analyzer - ' + data['Features'][0]['Product name'])
+    doc = document(title='Product Analyzer - ' + data['features'][0]['Product name'])
 
     with doc.head:
         link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
@@ -46,9 +44,9 @@ def analyze_reviews():
 
     with doc:
         with div(cls='container my-5'):
-            h1(f'{data["Features"][0]["Product name"]} - Product ID: {amazon_value}', 
+            h1(f'{data["features"][0]["Product name"]} - Product ID: {amazon_value}', 
             cls='text-center text-primary mb-4')
-            for feature in data['Features']:
+            for feature in data['features']:
                 with div(cls='card my-3'):
                     with div(cls='card-body'):
                         h2(feature['Name'], cls='card-title')
