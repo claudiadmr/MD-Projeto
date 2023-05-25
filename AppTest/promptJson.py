@@ -3,7 +3,7 @@ import openai
 import json
 import os
 
-openai.api_key = '' 
+openai.api_key = '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' 
 
 def get_completion(prompt, model="gpt-3.5-turbo"):
     messages = [{"role": "user", "content": prompt}]
@@ -23,8 +23,8 @@ def main(amazon, amazon_value):
         for review in review_list:
             reviews.append(review['body'])
     prompt = f"""
-    Analyze the following collection of reviews and employ topic modeling techniques to categorize the feedback into specific features of the product.
-    Divide each feature in positive characteristics and in negative characteristics, written it by your own words.
+    Analyze the following collection of reviews and employ topic modeling techniques to categorize the feedback into specific features of the product. Divide each feature in positive characteristics and in negative characteristics. Write the positive and negative features in a brief and objective manner as if you were writing for a technology website.
+
     Response format: 
                     
                     "features":       
