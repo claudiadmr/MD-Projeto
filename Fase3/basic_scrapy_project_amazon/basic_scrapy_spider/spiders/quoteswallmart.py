@@ -5,7 +5,7 @@ class WalmartReviewsSpider(scrapy.Spider):
     name = "Wallmart_reviews"
 
     def start_requests(self):
-        asin_list = ['1522055069']
+        asin_list = ['33092275']
         for asin in asin_list:
             Wallmart_reviews_url = f'https://www.walmart.com/reviews/product/{asin}/'
             yield scrapy.Request(url=Wallmart_reviews_url, callback=self.parse_reviews, meta={'asin': asin, 'retry_count': 0})
@@ -27,7 +27,11 @@ class WalmartReviewsSpider(scrapy.Spider):
             retry_count = retry_count+1
             yield scrapy.Request(url=response.url, callback=self.parse_reviews, dont_filter=True, meta={'asin': asin, 'retry_count': retry_count})
 
-        ## Parse Product Reviews
+      ## Extract Product Name
+        product_name = response.css('a[class="w_x7ug f6 dark-gray"]::text').get().split(",")[0]
+        words = product_name.split()
+        product_name = ' '.join(words[2:])
+        
       ## Parse Product Reviews
         review_elements = response.css("ul.cc-3.cg-4.pl0.mt4 li.dib.w-100.mb3")
         for review_element in review_elements:
@@ -43,6 +47,7 @@ class WalmartReviewsSpider(scrapy.Spider):
             if text is not None:
                 yield {
                     "asin": asin,
+                    "product": product_name,
                     "text": text,
                     "title": title,
                     "rating": rating,

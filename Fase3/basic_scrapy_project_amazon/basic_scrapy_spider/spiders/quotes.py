@@ -27,13 +27,19 @@ class AmazonReviewsSpider(scrapy.Spider):
             retry_count = retry_count+1
             yield scrapy.Request(url=response.url, callback=self.parse_reviews, dont_filter=True, meta={'asin': asin, 'retry_count': retry_count})
 
+        ## Extract Product Name
+        product_name = response.css("*[data-hook*=product-link]::text").get().split(",")[0]
+
         ## Parse Product Reviews
         review_elements = response.css("#cm_cr-review_list div.review")
+        
         for review_element in review_elements:
             yield {
                     "asin": asin,
+                    "product": product_name,
                     "text": "".join(review_element.css("span[data-hook=review-body] ::text").getall()).strip(),
                     "title": review_element.css("*[data-hook=review-title]>span::text").get(),
                     "rating": review_element.css("*[data-hook*=review-star-rating] ::text").re(r"(\d+\.*\d*) out")[0],
                     "source": "amazon"
             }
+        
