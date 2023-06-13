@@ -35,4 +35,5 @@ class AmazonReviewsSpider(scrapy.Spider):
                     "text": "".join(review_element.css("span[data-hook=review-body] ::text").getall()).strip(),
                     "title": review_element.css("*[data-hook=review-title]>span::text").get(),
                     "rating": review_element.css("*[data-hook*=review-star-rating] ::text").re(r"(\d+\.*\d*) out")[0],
+                    "source": "amazon"
             }
