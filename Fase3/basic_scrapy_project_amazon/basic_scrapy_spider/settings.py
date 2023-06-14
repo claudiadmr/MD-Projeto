@@ -12,9 +12,9 @@ BOT_NAME = 'basic_scrapy_spider'
 SPIDER_MODULES = ['basic_scrapy_spider.spiders']
 NEWSPIDER_MODULE = 'basic_scrapy_spider.spiders'
 
-ITEM_PIPELINES = {
-    'basic_scrapy_spider.pipelines.JsonExportPipeline': 1,
-}
+#ITEM_PIPELINES = {
+#    'basic_scrapy_spider.pipelines.JsonExportPipeline': 1,
+#}
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent

@@ -2,13 +2,17 @@ import scrapy
 from urllib.parse import urljoin
 
 class WalmartReviewsSpider(scrapy.Spider):
-    name = "Wallmart_reviews"
+    name = "wallmart_reviews"
 
+    def __init__(self, asin=None, *args, **kwargs):
+        super(WalmartReviewsSpider, self).__init__(*args, **kwargs)
+        self.asin = asin
+        self.product_name = None  # Add this line
+        self.product_name_extracted = False # Flag to track if product name has been extracted
     def start_requests(self):
-        asin_list = ['33092275']
-        for asin in asin_list:
-            Wallmart_reviews_url = f'https://www.walmart.com/reviews/product/{asin}/'
-            yield scrapy.Request(url=Wallmart_reviews_url, callback=self.parse_reviews, meta={'asin': asin, 'retry_count': 0})
+        print("ASIN", self.asin)
+        wallmart_reviews_url = f'https://www.walmart.com/reviews/product/{self.asin}/'
+        yield scrapy.Request(url=wallmart_reviews_url, callback=self.parse_reviews, meta={'asin': self.asin, 'retry_count': 0})
 
 
     def parse_reviews(self, response):
@@ -28,9 +32,10 @@ class WalmartReviewsSpider(scrapy.Spider):
             yield scrapy.Request(url=response.url, callback=self.parse_reviews, dont_filter=True, meta={'asin': asin, 'retry_count': retry_count})
 
       ## Extract Product Name
-        product_name = response.css('a[class="w_x7ug f6 dark-gray"]::text').get().split(",")[0]
-        words = product_name.split()
-        product_name = ' '.join(words[2:])
+        if not self.product_name_extracted:
+            self.product_name = response.css('a[class="w_x7ug f6 dark-gray"]::text').get().split(",")[0]
+            words = self.product_name.split()
+            self.product_name = ' '.join(words[2:])
         
       ## Parse Product Reviews
         review_elements = response.css("ul.cc-3.cg-4.pl0.mt4 li.dib.w-100.mb3")
@@ -40,14 +45,13 @@ class WalmartReviewsSpider(scrapy.Spider):
 
             title_element = review_element.css("span.b.w_V_DM::text").get()
             title = title_element.strip() if title_element else None
-
-            text_element = review_element.css("span.tl-m.db-m.mb3 span::text").get()
+            text_element = review_element.css("span.tl-m::text").get()
             text = text_element.strip() if text_element else None
 
             if text is not None:
                 yield {
                     "asin": asin,
-                    "product": product_name,
+                    "product": self.product_name,
                     "text": text,
                     "title": title,
                     "rating": rating,

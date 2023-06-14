@@ -11,9 +11,7 @@ class BasicScraperPipeline:
     def process_item(self, item, spider):
         return item
 
-import json
-import os
-
+"""import json
 class JsonExportPipeline(object):
     def open_spider(self, spider):
         self.asin_to_exporter = {}
@@ -37,5 +35,5 @@ class JsonExportPipeline(object):
         item_copy = dict(item)
         item_copy.pop('asin', None)
         line = json.dumps(item_copy)
-        f.write(line)
-        return item
+        f.write(line) 
+        return item """
