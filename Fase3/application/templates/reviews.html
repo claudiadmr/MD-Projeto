@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Reviews Analyzer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/reviews.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center mb-4" id="pageTitle">Customer Reviews</h1>
+    <div id="featureContainer"  class="d-flex flex-wrap justify-content-center">
+        {% for feature in data.values() %}
+            <div class="feature-box border p-3 m-2">{{ feature['Name'] }}</div>
+        {% endfor %}
+    </div>
+
+    <h1 class="text-center mb-4" id="reviewsTitle" style="display: none;">Reviews</h1>
+    <div id="reviewContainer" class="d-flex flex-wrap justify-content-right"></div>
+    <nav id="paginationContainer" class="d-flex justify-content-center mt-4" aria-label="Reviews Pagination"></nav>
+</div>
+<div class="footer">
+    <p>Universidade do Minho @2023</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    var data = {{ data|tojson|safe }};
+</script>
+
+<script>
+    const featureBoxes = document.getElementsByClassName('feature-box');
+    const reviewsTitle = document.getElementById('reviewsTitle');
+    const reviewContainer = document.getElementById('reviewContainer');
+    const paginationContainer = document.getElementById('paginationContainer');
+    let currentPage = 1;
+    const itemsPerPage = 6;
+    let selectedFeature = null;
+
+    for (let i = 0; i < featureBoxes.length; i++) {
+        featureBoxes[i].addEventListener('click', function () {
+            let featureName = this.innerText;
+            let featureData = data[featureName];
+            console.log("Feature name: ", featureName);
+            console.log("Feature data: ", featureData);
+            selectedFeature = featureData;
+            displayReviews(selectedFeature);
+            reviewsTitle.textContent = selectedFeature.Name;
+            reviewsTitle.style.display = 'block';
+        });
+    }
+
+    function displayReviews(feature) {
+        reviewContainer.innerHTML = '';
+        paginationContainer.innerHTML = '';
+
+        const reviews = feature['Positive Reviews'].concat(feature['Negative Reviews']);
+        const totalPages = Math.ceil(reviews.length / itemsPerPage);
+
+        if (totalPages > 1) {
+            renderPagination(totalPages);
+        }
+
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const paginatedReviews = reviews.slice(startIndex, endIndex);
+
+        for (let review of paginatedReviews) {
+            const reviewCard = document.createElement('div');
+            reviewCard.className = 'review-card';
+            if (feature['Positive Reviews'].includes(review)) {
+                reviewCard.innerHTML = '<h5 class="positive-title">Positive</h5><p>' + review + '</p>';
+            } else {
+                reviewCard.innerHTML = '<h5 class="negative-title">Negative</h5><p>' + review + '</p>';
+            }
+            reviewContainer.appendChild(reviewCard);
+        }
+    }
+
+    function renderPagination(totalPages) {
+        const pagination = document.createElement('ul');
+        pagination.className = 'pagination';
+
+        for (let i = 1; i <= totalPages; i++) {
+            const pageItem = document.createElement('li');
+            pageItem.className = 'page-item';
+            const pageLink = document.createElement('a');
+            pageLink.className = 'page-link';
+            pageLink.textContent = i;
+            if (i === currentPage) {
+                pageItem.classList.add('active');
+            }
+            pageItem.addEventListener('click', function () {
+                currentPage = i;
+                displayReviews(selectedFeature);
+            });
+            pageItem.appendChild(pageLink);
+            pagination.appendChild(pageItem);
+        }
+
+        paginationContainer.appendChild(pagination);
+    }
+</script>
+
+</body>
+</html>
