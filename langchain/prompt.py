@@ -8,25 +8,28 @@ from langchain.schema import Document
 import os
 
 # Set your OpenAI API key
-os.environ["OPENAI_API_KEY"] = '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'
+os.environ["OPENAI_API_KEY"] = ''
 
 # Set the file path
-file_path = 'B09MW19JW2_reviews.json'
+file_path = 'response.json'
 
 # Load the JSON file
 with open(file_path, 'r') as f:
     data = json.load(f)
-
+    data['data1'] = data['data1']['items']
+    data['data2'] = data['data2']['items']
+    data = data['data1'] + data['data2']
+    print(len(data))
 # Extract the data you need
 documents = []
 for item in data:
-    document = Document(
-        page_content=item['text'],
-        metadata={
-            'title': item['title'],
-            'rating': item['rating']
-        }
-    )
+    metadata = {'rating': item['rating']}
+    if item['title'] is not None:
+        metadata['title'] = item['title']
+    if item['product'] is not None:
+        metadata['product'] = item['product']
+
+    document = Document(page_content=item['text'], metadata=metadata)
     documents.append(document)
 
 # Split the text in chunks
@@ -43,16 +46,14 @@ qa_interface = RetrievalQA.from_chain_type(llm=ChatOpenAI(), chain_type="stuff",
                                            return_source_documents=True)
 
 # Query GPT-3
-response = qa_interface("""Analyze the following collection of reviews and employ topic modeling techniques to categorize the feedback into specific features of the product. Divide each feature in positive characteristics and in negative characteristics. Write the positive and negative features in a brief and objective manner as if you were writing for a technology website.
-
-    Response format: 
-                    
-                    "features":       
-                        -Name: x
-                        -Positive characteristics: y
-                        -Negative characteristics: z 
-                        -If there are no positive or negative characteristics, write "Not applicable".
-
-    Provide it in JSON format to save in JSON file.""")
+response = qa_interface("""Analyze the following collection of reviews and employ topic modeling techniques to categorize the feedback into specific features of the product.
+Start by translating every review that is in another language to english.
+Divide each feature in positive characteristics and in negative characteristics.
+Response format: Feature:
+                -name: x
+                 -Positive Feature Reviews:( only the ones about this feature)
+                 -Negative Feature Reviews:(only the ones about this feature)
+If there are no positive or negative characteristics, write "Not applicable".
+Provide it in JSON format.""")
 print(response)
 print(response['result'])
