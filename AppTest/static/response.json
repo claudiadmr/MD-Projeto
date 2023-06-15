@@ -1,0 +1,204 @@
+{
+    "Features": [
+        {
+            "Name": "Button size",
+            "Product name": "Microwave",
+            "Positive characteristics": [
+                "Not applicable",
+                "Easy to press buttons",
+                "Intuitive button layout",
+                "Buttons are responsive and well-designed",
+                "Buttons have a nice tactile feel"
+            ],
+            "Negative characteristics": [
+                "Buttons quite small",
+                "Buttons can be accidentally pressed",
+                "Button labels could be clearer",
+                "Buttons are not backlit"
+            ]
+        },
+        {
+            "Name": "Cooking evenly",
+            "Product name": "Microwave",
+            "Positive characteristics": [
+                "Not applicable",
+                "Cooks food evenly",
+                "Evenly distributes heat",
+                "No hot or cold spots in the food",
+                "Food is uniformly cooked"
+            ],
+            "Negative characteristics": [
+                "Not convinced that any small microwave cooks as evenly as a full-size one",
+                "Food can sometimes be unevenly heated",
+                "Cooking times may need adjustment for certain dishes",
+                "May require stirring or rearranging food for better results May require stirring or rearranging food for better results May require stirring or rearranging food for better results May require stirring or rearranging food for better results May require stirring or rearranging food for better results May require stirring or rearranging food for better results May require stirring or rearranging food for better results May require stirring or rearranging food for better results"
+            ]
+        },
+        {
+            "Name": "Power",
+            "Product name": "Microwave",
+            "Positive characteristics": [
+                "Good, powerful",
+                "Quick heating times",
+                "Efficient power usage",
+                "Able to handle large quantities of food",
+                "Can defrost food rapidly"
+            ],
+            "Negative characteristics": [
+                "Not applicable",
+                "Power settings may be too high for delicate foods",
+                "May overheat food if not monitored closely",
+                "Limited control over power levels",
+                "Power output decreases over time"
+            ]
+        },
+        {
+            "Name": "Ease of use",
+            "Product name": "Microwave",
+            "Positive characteristics": [
+                "Stylish and easy to use",
+                "One-touch operation",
+                "Easy to use with preset buttons",
+                "Great purchase",
+                "Easy to operate and works well",
+                "Intuitive controls",
+                "Clear and understandable user interface",
+                "Easy to clean and maintain",
+                "Convenient and hassle-free operation"
+            ],
+            "Negative characteristics": [
+                "Fed up with complicated microwaves",
+                "Button labels may fade over time",
+                "Lacks detailed instructions for advanced features",
+                "May take some time to learn all the functions",
+                "Some buttons require multiple presses to function"
+            ]
+        },
+        {
+            "Name": "Value for money",
+            "Product name": "Microwave",
+            "Positive characteristics": [
+                "A new microwave for a great price of just under £100",
+                "Good value for money",
+                "Affordable yet high quality",
+                "Offers features comparable to more expensive models",
+                "Long-lasting and reliable"
+            ],
+            "Negative characteristics": [
+                "Nothing really good about the microwave",
+                "Limited warranty coverage",
+                "Durability concerns over time",
+                "May require additional accessories for certain functions",
+                "Replacement parts are expensive"
+            ]
+        },
+        {
+            "Name": "Design",
+            "Product name": "Microwave",
+            "Positive characteristics": [
+                "Very smart looking microwave",
+                "Great microwave and really looks nice on the worktop",
+                "Modern and aesthetically pleasing design",
+                "Compact and space-saving",
+                "Sleek and elegant appearance"
+            ],
+            "Negative characteristics": [
+                "Not applicable",
+                "May not match other kitchen appliances in style",
+                "Sensitive to fingerprints and smudges",
+                "Buttons could be more visually appealing",
+                "Limited color options"
+            ]
+        },
+        {
+            "Name": "Cooking performance",
+            "Product name": "Microwave",
+            "Positive characteristics": [
+                "Cooks brilliantly with no problems",
+                "Consistently delivers excellent cooking results",
+                "Versatile for various cooking tasks",
+                "Efficient and time-saving cooking",
+                "Preserves food texture and taste"
+            ],
+            "Negative characteristics": [
+                "Not applicable",
+                "May not be suitable for complex cooking techniques",
+                "Limited control over cooking parameters",
+                "May produce uneven cooking results for certain foods",
+                "Food may become overcooked if not monitored"
+            ]
+        },
+        {
+            "Name": "Timer",
+            "Product name": "Microwave",
+            "Positive characteristics": [
+                "Simple digital timer",
+                "Easy to set and adjust the timer Easy to set and adjust the timer Easy to set and adjust the timer Easy to set and adjust the timer Easy to set and adjust the timer Easy to set and adjust the timer Easy to set and adjust the timer Easy to set and adjust the timer ",
+                "Accurate and reliable timing",
+                "Countdown timer is helpful",
+                "Provides audible alerts when time is up"
+            ],
+            "Negative characteristics": [
+                "Not applicable",
+                "Timer alarm could be louder",
+                "Lacks additional timer features",
+                "Difficult to see the timer display from a distance",
+                "Timer buttons can be unresponsive at times"
+            ]
+        },
+        {
+            "Name": "Direct input time",
+            "Product name": "Microwave",
+            "Positive characteristics": [
+                "Ability to directly input a time",
+                "Works well and is responsive",
+                "Great purchase",
+                "Saves time and effort",
+                "Convenient for precise cooking needs"
+            ],
+            "Negative characteristics": [
+                "Not applicable",
+                "May take some time to get used to the input method",
+                "Input buttons may require firm presses",
+                "No option to easily add or subtract time during cooking",
+                "Limited input range for time settings"
+            ]
+        },
+        {
+            "Name": "Quality",
+            "Product name": "Microwave",
+            "Positive characteristics": [
+                "Working great",
+                "High-quality construction",
+                "Durable and long-lasting",
+                "Solid build and materials",
+                "Reliable performance"
+            ],
+            "Negative characteristics": [
+                "My microwave had been working with a quality slightly below other products on the market",
+                "It no longer works",
+                "Sadly warranty lasts 1 year",
+                "Will never buy another Toshiba microwave again",
+                "Questionable durability in the long run"
+            ]
+        },
+        {
+            "Name": "Heating fast food",
+            "Product name": "Microwave",
+            "Positive characteristics": [
+                "Very good microwave",
+                "Efficiently heats fast food",
+                "Quick reheating times",
+                "Preserves food texture",
+                "Convenient for quick meals"
+            ],
+            "Negative characteristics": [
+                "Had to get used to it",
+                "Used to have a convection oven and microwave in one",
+                "May not provide crispy results for certain fast foods",
+                "Limited control over reheating parameters",
+                "Food may become soggy if not monitored"
+            ]
+        }
+    ]
+}

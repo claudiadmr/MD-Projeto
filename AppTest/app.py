@@ -95,7 +95,7 @@ def analyze_reviews():
                                 h3('Negative characteristics:')
                                 p(feature['Negative characteristics'])
         with div(cls='footer'):
-            p('UMinho - ' + date.today().strftime('%Y'))
+            p('Universidade do Minho - ' + date.today().strftime('%Y'))
 
     return str(doc), 200
 
