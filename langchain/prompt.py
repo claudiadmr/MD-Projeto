@@ -10,26 +10,24 @@ import os
 # Set your OpenAI API key
 os.environ["OPENAI_API_KEY"] = ''
 
+
 # Set the file path
-file_path = 'response.json'
+file_path = 'B09MW19JW2_reviews.json'
 
 # Load the JSON file
 with open(file_path, 'r') as f:
     data = json.load(f)
-    data['data1'] = data['data1']['items']
-    data['data2'] = data['data2']['items']
-    data = data['data1'] + data['data2']
-    print(len(data))
+
 # Extract the data you need
 documents = []
 for item in data:
-    metadata = {'rating': item['rating']}
-    if item['title'] is not None:
-        metadata['title'] = item['title']
-    if item['product'] is not None:
-        metadata['product'] = item['product']
-
-    document = Document(page_content=item['text'], metadata=metadata)
+    document = Document(
+        page_content=item['text'],
+        metadata={
+            'title': item['title'],
+            'rating': item['rating']
+        }
+    )
     documents.append(document)
 
 # Split the text in chunks
@@ -46,14 +44,17 @@ qa_interface = RetrievalQA.from_chain_type(llm=ChatOpenAI(), chain_type="stuff",
                                            return_source_documents=True)
 
 # Query GPT-3
-response = qa_interface("""Analyze the following collection of reviews and employ topic modeling techniques to categorize the feedback into specific features of the product.
-Start by translating every review that is in another language to english.
-Divide each feature in positive characteristics and in negative characteristics.
-Response format: Feature:
-                -name: x
-                 -Positive Feature Reviews:( only the ones about this feature)
-                 -Negative Feature Reviews:(only the ones about this feature)
-If there are no positive or negative characteristics, write "Not applicable".
-Provide it in JSON format.""")
+response = qa_interface("""
+    Analyze the following collection of reviews and employ topic modeling techniques to categorize the feedback into specific features of the product.    
+    Divide each feature in positive characteristics and in negative characteristics.
+    Response format: Feature:
+                    -name: x
+                    -Positive Reviews:(full reviews only the ones about this feature)
+                    -Negative Reviews:(full reviews only the ones about this feature)
+
+    Do not repeat the same review twice.
+    If there are no positive or negative characteristics, write "Not applicable".
+    Give at least 6 Features
+    Provide it in JSON format.""")
 print(response)
 print(response['result'])
