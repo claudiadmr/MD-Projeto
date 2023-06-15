@@ -1,8 +1,10 @@
 import requests
 import threading
-
 from flask import jsonify
-
+from dotenv import load_dotenv
+import os
+load_dotenv()
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 class APIRequestThread(threading.Thread):
     def __init__(self, url):
@@ -35,5 +37,9 @@ def run_scraper(amazon, walmart):
         'data1': thread1.data,
         'data2': thread2.data,
     }
-
+    print(len(combined_data['data1']['items']))
+    print(len(combined_data['data2']['items']))
+    combined_data = combined_data['data1']['items'] + combined_data['data2']['items']
+    print(len(combined_data))
     return jsonify(combined_data)
+

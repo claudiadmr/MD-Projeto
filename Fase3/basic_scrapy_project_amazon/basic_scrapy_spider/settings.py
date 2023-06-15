@@ -6,6 +6,11 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 BOT_NAME = 'basic_scrapy_spider'
 
@@ -23,7 +28,8 @@ NEWSPIDER_MODULE = 'basic_scrapy_spider.spiders'
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
-SCRAPEOPS_API_KEY = '8111ffad-b8ca-401e-b9e5-384b9931ecd1'
+SCRAPEOPS_API_KEY = os.getenv('SCRAPEOPS_API_KEY')
+#SCRAPEOPS_API_KEY = '8111ffad-b8ca-401e-b9e5-384b9931ecd1'
 SCRAPEOPS_PROXY_ENABLED = True
 
 DOWNLOADER_MIDDLEWARES = {

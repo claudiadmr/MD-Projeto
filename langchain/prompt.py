@@ -1,11 +1,3 @@
-"""openai_api_key = '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'
-
-from langchain.llms import OpenAI
-
-llm = OpenAI(model_name="text-ada-001", openai_api_key=openai_api_key)
-response = llm("What day comes after Friday?")
-print(response)"""
-
 import json
 from langchain.vectorstores import Chroma
 from langchain.chat_models import ChatOpenAI
@@ -16,7 +8,7 @@ from langchain.schema import Document
 import os
 
 # Set your OpenAI API key
-os.environ["OPENAI_API_KEY"] = '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'
+os.environ["OPENAI_API_KEY"] = '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'
 
 # Set the file path
 file_path = 'B09MW19JW2_reviews.json'

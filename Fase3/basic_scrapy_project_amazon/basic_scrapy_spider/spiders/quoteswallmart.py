@@ -10,7 +10,6 @@ class WalmartReviewsSpider(scrapy.Spider):
         self.product_name = None  # Add this line
         self.product_name_extracted = False # Flag to track if product name has been extracted
     def start_requests(self):
-        print("ASIN", self.asin)
         wallmart_reviews_url = f'https://www.walmart.com/reviews/product/{self.asin}/'
         yield scrapy.Request(url=wallmart_reviews_url, callback=self.parse_reviews, meta={'asin': self.asin, 'retry_count': 0})
 

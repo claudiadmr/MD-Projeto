@@ -32,5 +32,8 @@ build/
 ### VS Code ###
 .vscode/
 
-# System Files
+### System Files
 .DS_Store
+
+### KEYS ###
+.env
