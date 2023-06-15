@@ -54,7 +54,7 @@ response = qa_interface("""
 
     Do not repeat the same review twice.
     If there are no positive or negative characteristics, write "Not applicable".
-    Give at least 10 Features
+    Give at least 6 Features
     Provide it in JSON format.""")
 print(response)
 print(response['result'])
