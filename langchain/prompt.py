@@ -8,7 +8,8 @@ from langchain.schema import Document
 import os
 
 # Set your OpenAI API key
-os.environ["OPENAI_API_KEY"] = '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'
+os.environ["OPENAI_API_KEY"] = ''
+
 
 # Set the file path
 file_path = 'B09MW19JW2_reviews.json'
@@ -43,16 +44,17 @@ qa_interface = RetrievalQA.from_chain_type(llm=ChatOpenAI(), chain_type="stuff",
                                            return_source_documents=True)
 
 # Query GPT-3
-response = qa_interface("""Analyze the following collection of reviews and employ topic modeling techniques to categorize the feedback into specific features of the product. Divide each feature in positive characteristics and in negative characteristics. Write the positive and negative features in a brief and objective manner as if you were writing for a technology website.
+response = qa_interface("""
+    Analyze the following collection of reviews and employ topic modeling techniques to categorize the feedback into specific features of the product.    
+    Divide each feature in positive characteristics and in negative characteristics.
+    Response format: Feature:
+                    -name: x
+                    -Positive Reviews:(full reviews only the ones about this feature)
+                    -Negative Reviews:(full reviews only the ones about this feature)
 
-    Response format: 
-                    
-                    "features":       
-                        -Name: x
-                        -Positive characteristics: y
-                        -Negative characteristics: z 
-                        -If there are no positive or negative characteristics, write "Not applicable".
-
-    Provide it in JSON format to save in JSON file.""")
+    Do not repeat the same review twice.
+    If there are no positive or negative characteristics, write "Not applicable".
+    Give at least 10 Features
+    Provide it in JSON format.""")
 print(response)
 print(response['result'])
