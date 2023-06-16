@@ -49,11 +49,10 @@ class WalmartReviewsSpider(scrapy.Spider):
 
             if text is not None:
                 yield {
-                    "asin": asin,
                     "product": self.product_name,
                     "text": text,
                     "title": title,
                     "rating": rating,
-                    "source": "wallmart"
+                    "source": "walmart"
                 }
             

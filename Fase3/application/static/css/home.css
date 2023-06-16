@@ -42,3 +42,12 @@ body {
     color: #6c757d;
     font-weight: bold;
 }
+
+.loading-spinner {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
